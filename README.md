@@ -26,7 +26,8 @@ let url = URL(fileURLWithPath: path, isDirectory: false)
 let data = try! Data(contentsOf: url)
 let swime = Swime(data: data)
 
-swime.mimeType()! // MimeType(ext: "wmv", mime: "video/x-ms-wmv")
+swime.mimeType()! // MimeType(ext: "jpg", mime: "image/jpeg")
+
 ```
 ## Testing
 
