@@ -28,4 +28,8 @@ let swime = Swime(data: data)
 
 swime.mimeType()! // MimeType(ext: "wmv", mime: "video/x-ms-wmv")
 ```
+## Testing
 
+```
+make test
+```
