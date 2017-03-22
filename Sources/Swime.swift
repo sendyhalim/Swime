@@ -1,10 +1,18 @@
 import Foundation
 
-struct Swime {
+public struct Swime {
   let data: Data
 
-  public func mimeType() -> String {
-    return "wut"
+  public func mimeType() -> MimeType? {
+    let bytes = readBytes(count: 57)
+
+    for (_, mimeType) in MimeType.specifications {
+      if bytes == mimeType.magicNumbers {
+        return mimeType
+      }
+    }
+
+    return nil
   }
 
   public func readBytes(count: Int) -> [UInt8] {
