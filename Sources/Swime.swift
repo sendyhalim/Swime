@@ -3,6 +3,10 @@ import Foundation
 public struct Swime {
   let data: Data
 
+  public init(data: Data) {
+    self.data = data
+  }
+
   public func mimeType() -> MimeType? {
     let bytes = readBytes(count: 262)
 
