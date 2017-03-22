@@ -1,6 +1,7 @@
 # Ignored files
 .DS_STORE
 *.log
+.Package.swift.bak
 
 # Ignored directories
 .build/

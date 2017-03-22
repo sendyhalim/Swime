@@ -4,6 +4,5 @@ matrix:
   include:
     - script:
       - swift package update
-      - swift build
-      - swift test
+      - make test
 
