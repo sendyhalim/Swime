@@ -1,0 +1,7 @@
+# Ignored files
+.DS_STORE
+*.log
+
+# Ignored directories
+.build/
+Packages/
