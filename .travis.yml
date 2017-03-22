@@ -1,0 +1,9 @@
+language: objective-c
+osx_image: xcode8.2
+matrix:
+  include:
+    - script:
+      - swift package update
+      - swift build
+      - swift test
+
