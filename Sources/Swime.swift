@@ -7,7 +7,9 @@ public struct Swime {
     let bytes = readBytes(count: 57)
 
     for (_, mimeType) in MimeType.specifications {
-      if bytes == mimeType.magicNumbers {
+      let bytesToCompare = Array(bytes[0 ..< mimeType.magicNumbers.count])
+
+      if bytesToCompare == mimeType.magicNumbers {
         return mimeType
       }
     }

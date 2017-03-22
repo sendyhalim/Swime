@@ -1,3 +1,4 @@
+import Foundation
 import Nimble
 import Quick
 
@@ -22,6 +23,22 @@ class SwimeSpec: QuickSpec {
           let expectation = [UInt8](substr.utf8)
 
           expect(bytes) == expectation
+        }
+      }
+    }
+
+    describe(".mimeType()") {
+      for (ext, mimeType) in MimeType.specifications {
+        context("when extension is \(ext)") {
+          let projectDir = FileManager.default.currentDirectoryPath
+          let path = "\(projectDir)/Tests/SwimeTests/fixtures/fixture.\(ext)"
+          let url = URL(fileURLWithPath: path, isDirectory: false)
+          let data = try! Data(contentsOf: url)
+
+          it("shoud guess the correct mime type") {
+            let swime = Swime(data: data)
+            expect(swime.mimeType()?.value) == Optional.some(mimeType.value)
+          }
         }
       }
     }
