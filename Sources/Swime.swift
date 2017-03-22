@@ -234,11 +234,15 @@ public struct Swime {
       )
     }
 
-    if bytes[0] == 0x0 && bytes[1] == 0x0 && bytes[2] == 0x1 && String(format: "%2X", bytes[3]) == "b" {
-      return MimeType(
-        ext: "mpg",
-        mime: "video/mpeg"
-      )
+    if bytes[0] == 0x0 && bytes[1] == 0x0 && bytes[2] == 0x1 {
+      let hexCode = String(format: "%2X", bytes[3])
+
+      if hexCode.characters.first != nil && hexCode.characters.first! == "B" {
+        return MimeType(
+          ext: "mpg",
+          mime: "video/mpeg"
+        )
+      }
     }
 
     if (bytes[0] == 0x49 && bytes[1] == 0x44 && bytes[2] == 0x33) || (bytes[0] == 0xFF && bytes[1] == 0xfb) {
