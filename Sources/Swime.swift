@@ -172,21 +172,22 @@ public struct Swime {
 
     // https://github.com/threatstack/libmagic/blob/master/magic/Magdir/matroska
     if bytes[0] == 0x1A && bytes[1] == 0x45 && bytes[2] == 0xDF && bytes[3] == 0xA3 {
-      let _bytes = readBytes(count: 4100)
+      let _bytes = Array(readBytes(count: 4100)[4 ..< 4100])
       var idPos = -1
 
       for i in 0 ..< (_bytes.count - 1) {
         if _bytes[i] == 0x42 && _bytes[i + 1] == 0x82 {
           idPos = i
+          break;
         }
       }
 
       if idPos > -1 {
-        let docTypePos = idPos + 3;
+        let docTypePos = idPos + 3
         let findDocType: (String) -> Bool = { type in
-          for i in 4 ..< type.characters.count {
-            let character = type.characters.index(type.startIndex, offsetBy: i)
-            let scalars = String(describing: character).unicodeScalars
+          for i in 0 ..< type.characters.count {
+            let index = type.characters.index(type.startIndex, offsetBy: i)
+            let scalars = String(type.characters[index]).unicodeScalars
 
             if _bytes[docTypePos + i] != UInt8(scalars[scalars.startIndex].value) {
               return false
