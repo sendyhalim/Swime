@@ -98,7 +98,7 @@ public struct MimeType {
   }
 
   /// List of all supported `MimeType`s
-  static let all: [MimeType] = [
+  public static let all: [MimeType] = [
     MimeType(
       mime: "image/jpeg",
       ext: "jpg",
