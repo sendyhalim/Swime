@@ -1,8 +1,7 @@
 import Foundation
 import Nimble
 import Quick
-
-@testable import Swime
+import Swime
 
 class SwimeSpec: QuickSpec {
   override func spec() {
@@ -98,12 +97,8 @@ class SwimeSpec: QuickSpec {
 
       for ext in extensions {
         context("when extension is \(ext)") {
-          let projectDir = FileManager.default.currentDirectoryPath
-          let path = "\(projectDir)/Tests/SwimeTests/fixtures/fixture.\(ext)"
-          let url = URL(fileURLWithPath: path, isDirectory: false)
-          let data = try! Data(contentsOf: url)
-
           it("shoud guess the correct mime type") {
+            let data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.\(ext)")
             let swime = Swime(data: data)
 
             if let mimeType = mimeTypeByExtension[ext] {
