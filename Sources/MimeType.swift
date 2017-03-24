@@ -1,5 +1,11 @@
 import Foundation
 
+/// List of mime type extension enum
+/// with this enum we can check mime type with addition of swift type checker
+/// ```
+/// let swime = Swime(data: data)
+/// swime.typeIs(.jpg)
+/// ```
 public enum MimeTypeExtension {
   case amr
   case ar
@@ -63,17 +69,35 @@ public enum MimeTypeExtension {
 }
 
 public struct MimeType {
+  /// Mime type string representation. For example "application/pdf"
   public let mime: String
+
+  /// Mime type extension. For example "pdf"
   public let ext: String
+
+  /// Mime type enum extension representation. For example `.pdf`
   public let extEnum: MimeTypeExtension
 
+  /// Number of bytes required for `MimeType` to be able to check if the
+  /// given bytes match with its mime type magic number specifications.
   fileprivate let bytesCount: Int
+
+  /// A function to check if the bytes match the `MimeType` specifications.
   fileprivate let matches: ([UInt8], Swime) -> Bool
 
+  ///  Check if the given bytes matches with `MimeType`
+  ///  it will check for the `bytes.count` first before delegating the 
+  ///  checker function to `matches` property
+  ///
+  ///  - parameter bytes: Bytes represented with `[UInt8]`
+  ///  - parameter swime: Swime instance
+  ///
+  ///  - returns: Bool
   public func matches(bytes: [UInt8], swime: Swime) -> Bool {
     return bytes.count >= bytesCount && matches(bytes, swime)
   }
 
+  /// List of all supported `MimeType`s
   static let all: [MimeType] = [
     MimeType(
       mime: "image/jpeg",
@@ -714,4 +738,3 @@ public struct MimeType {
     )
   ]
 }
-
