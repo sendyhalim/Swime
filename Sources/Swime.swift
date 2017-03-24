@@ -26,5 +26,9 @@ public struct Swime {
 
     return bytes
   }
+
+  public func typeIs(_ ext: MimeTypeExtension) -> Bool {
+    return mimeType()?.extEnum == Optional.some(ext)
+  }
 }
 

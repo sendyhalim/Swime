@@ -110,6 +110,35 @@ class SwimeSpec: QuickSpec {
         }
       }
     }
+
+    describe(".typeIs()") {
+      context("when file type is image/jpeg") {
+        it("should return true") {
+          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.jpg")
+          let swime = Swime(data: data)
+
+          expect(swime.typeIs(.jpg)) == true
+        }
+      }
+
+      context("when file type is application/pdf") {
+        it("should return true") {
+          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.pdf")
+          let swime = Swime(data: data)
+
+          expect(swime.typeIs(.pdf)) == true
+        }
+      }
+
+      context("when file type is not image/jpeg") {
+        it("should return true") {
+          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.png")
+          let swime = Swime(data: data)
+
+          expect(swime.typeIs(.jpg)) == false
+        }
+      }
+    }
   }
 }
 
