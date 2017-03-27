@@ -5,8 +5,7 @@ test:
 	cp Package.swift .Package.swift.bak
 	cp .Package.test.swift Package.swift
 	swift test
-	cp .Package.swift.bak Package.swift
-	rm .Package.swift.bak
+	mv .Package.swift.bak Package.swift
 
 .PHONY: regenerate-xcode test
 
