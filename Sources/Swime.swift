@@ -8,6 +8,10 @@ public struct Swime {
     self.data = data
   }
 
+  public init(bytes: [UInt8]) {
+    self.init(data: Data(bytes: bytes))
+  }
+
   ///  Get the `MimeType` that matches the file data
   ///
   ///  - returns: Optional<MimeType>

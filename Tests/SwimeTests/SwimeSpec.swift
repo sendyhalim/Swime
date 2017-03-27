@@ -111,6 +111,26 @@ class SwimeSpec: QuickSpec {
       }
     }
 
+    describe(".init(bytes:") {
+      context("when given jpeg bytes") {
+        it("should return image/jpeg mime type") {
+          let bytes: [UInt8] = [255, 216, 255]
+          let swime = Swime(bytes: bytes)
+
+          expect(swime.mimeType()?.mime) == Optional.some("image/jpeg")
+        }
+      }
+
+      context("when given 7z bytes") {
+        it("should return application/x-7z-compressed") {
+          let bytes: [UInt8] = [55, 122, 188, 175, 39, 28]
+          let swime = Swime(bytes: bytes)
+
+          expect(swime.mimeType()?.mime) == Optional.some("application/x-7z-compressed")
+        }
+      }
+    }
+
     describe(".typeIs()") {
       context("when file type is image/jpeg") {
         it("should return true") {
