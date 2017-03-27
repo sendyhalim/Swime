@@ -17,6 +17,8 @@ let package = Package(
 ```
 
 ## Usage
+
+Read data manually
 ```swift
 import Swime
 
@@ -41,6 +43,15 @@ switch swime.mimeType()!.extEnum {
 }
 ```
 
+Pass bytes to it
+```swift
+import Swime
+
+let bytes: [UInt8] = [255, 216, 255]
+let swime = Swime(bytes: bytes)
+
+swime.mimeType()! // MimeType(mime: "image/jpeg", ext: "jpg", extEnum: .jpg)
+```
 
 ## MimeTypeExtension
 Here are the list of available `MimeTypeExtension`s, you can access it directly or from `swime.mimeType()!.extEnum`.
