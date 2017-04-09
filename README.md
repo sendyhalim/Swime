@@ -1,5 +1,5 @@
 # 🗂 Swime
-Swift MIME type checking based on magic bytes. Swime detects MIME type of a `Data`, ported from [sindresorhus/file-type](https://github.com/sindresorhus/file-type)
+Swift check MIME type based on magic bytes. Swime detects MIME type of a `Data`, ported from [sindresorhus/file-type](https://github.com/sindresorhus/file-type)
 
 [![Build Status](https://travis-ci.org/sendyhalim/Swime.svg?branch=master)](https://travis-ci.org/sendyhalim/Swime)
 
