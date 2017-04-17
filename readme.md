@@ -30,12 +30,12 @@ let swime = Swime(data: data)
 swime.type == .jpg // true
 swime.mimeType()! // MimeType(mime: "image/jpeg", ext: "jpg", extEnum: .jpg)
 
-switch swime.type! {
-  case .jpg:
+switch swime.type {
+  case .jpg?:
     ....
-  case .png:
+  case .png?:
     ....
-  case .wmv:
+  case .wmv?:
     ....
 
   case ...
