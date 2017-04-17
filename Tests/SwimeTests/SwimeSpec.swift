@@ -102,9 +102,9 @@ class SwimeSpec: QuickSpec {
             let swime = Swime(data: data)
 
             if let mimeType = mimeTypeByExtension[ext] {
-              expect(swime.mimeType()?.mime) == Optional.some(mimeType)
+              expect(swime.mimeType()?.mime) == mimeType
             } else {
-              expect(swime.mimeType()?.ext) == Optional.some(ext)
+              expect(swime.mimeType()?.ext) == ext
             }
           }
         }
@@ -117,7 +117,7 @@ class SwimeSpec: QuickSpec {
           let bytes: [UInt8] = [255, 216, 255]
           let swime = Swime(bytes: bytes)
 
-          expect(swime.mimeType()?.mime) == Optional.some("image/jpeg")
+          expect(swime.mimeType()?.mime) == "image/jpeg"
         }
       }
 
@@ -126,18 +126,18 @@ class SwimeSpec: QuickSpec {
           let bytes: [UInt8] = [55, 122, 188, 175, 39, 28]
           let swime = Swime(bytes: bytes)
 
-          expect(swime.mimeType()?.mime) == Optional.some("application/x-7z-compressed")
+          expect(swime.mimeType()?.mime) == "application/x-7z-compressed"
         }
       }
     }
 
-    describe(".typeIs()") {
+    describe(".type") {
       context("when file type is image/jpeg") {
         it("should return true") {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.jpg")
           let swime = Swime(data: data)
 
-          expect(swime.typeIs(.jpg)) == true
+          expect(swime.type) == .jpg
         }
       }
 
@@ -146,7 +146,7 @@ class SwimeSpec: QuickSpec {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.pdf")
           let swime = Swime(data: data)
 
-          expect(swime.typeIs(.pdf)) == true
+          expect(swime.type) == .pdf
         }
       }
 
@@ -155,7 +155,7 @@ class SwimeSpec: QuickSpec {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.png")
           let swime = Swime(data: data)
 
-          expect(swime.typeIs(.jpg)) == false
+          expect(swime.type) != .jpg
         }
       }
     }

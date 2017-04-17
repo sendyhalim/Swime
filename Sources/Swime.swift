@@ -4,6 +4,14 @@ public struct Swime {
   /// File data
   let data: Data
 
+  ///  Optional computed property of mime type extension enum.
+  ///  ```
+  ///  swime.type == .jpg
+  ///  ```
+  public var type: MimeTypeExtension? {
+    return mimeType()?.extEnum
+  }
+
   public init(data: Data) {
     self.data = data
   }
@@ -38,14 +46,5 @@ public struct Swime {
     data.copyBytes(to: &bytes, count: count)
 
     return bytes
-  }
-
-  ///  Check if file data matches with the given `MimeTypeExtension`
-  ///
-  ///  - parameter ext: `MimeTypeExtension`
-  ///
-  ///  - returns: `Bool`
-  public func typeIs(_ ext: MimeTypeExtension) -> Bool {
-    return mimeType()?.extEnum == Optional.some(ext)
   }
 }
