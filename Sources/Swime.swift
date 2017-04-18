@@ -8,14 +8,29 @@ public struct Swime {
   ///
   ///  - returns: Optional<MimeType>
   static public func mimeType(data: Data) -> MimeType? {
-    return Swime(data: data).mimeType()
+    return mimeType(swime: Swime(data: data))
   }
 
   ///  A static method to get the `MimeType` that matches the given bytes
   ///
   ///  - returns: Optional<MimeType>
   static public func mimeType(bytes: [UInt8]) -> MimeType? {
-    return Swime(bytes: bytes).mimeType()
+    return mimeType(swime: Swime(bytes: bytes))
+  }
+
+  ///  Get the `MimeType` that matches the given `Swime` instance
+  ///
+  ///  - returns: Optional<MimeType>
+  static public func mimeType(swime: Swime) -> MimeType? {
+    let bytes = swime.readBytes(count: 262)
+
+    for mime in MimeType.all {
+      if mime.matches(bytes: bytes, swime: swime) {
+        return mime
+      }
+    }
+
+    return nil
   }
 
   public init(data: Data) {
@@ -24,21 +39,6 @@ public struct Swime {
 
   public init(bytes: [UInt8]) {
     self.init(data: Data(bytes: bytes))
-  }
-
-  ///  Get the `MimeType` that matches the file data
-  ///
-  ///  - returns: Optional<MimeType>
-  public func mimeType() -> MimeType? {
-    let bytes = readBytes(count: 262)
-
-    for mime in MimeType.all {
-      if mime.matches(bytes: bytes, swime: self) {
-        return mime
-      }
-    }
-
-    return nil
   }
 
   ///  Read bytes from file data

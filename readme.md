@@ -11,26 +11,27 @@ import PackageDescription
 let package = Package(
   name: "MyApp",
   dependencies: [
-    .Package(url: "https://github.com/sendyhalim/Swime", majorVersion: 1)
+    .Package(url: "https://github.com/sendyhalim/Swime", majorVersion: 2)
   ]
 )
 ```
 
 ## Usage
 
-Read data manually
-```swift
+Inspect mime type
+
+```
 import Swime
 
 let path = "/path/to/some-file.jpg"
 let url = URL(fileURLWithPath: path, isDirectory: false)
 let data = try! Data(contentsOf: url)
-let swime = Swime(data: data)
+let mimeType = Swime.mimeType(data: data)
 
-swime.type == .jpg // true
-swime.mimeType()! // MimeType(mime: "image/jpeg", ext: "jpg", extEnum: .jpg)
+mimeType?.type == .jpg // true
+mimeType! // MimeType(mime: "image/jpeg", ext: "jpg", type: .jpg)
 
-switch swime.type {
+switch mimeType?.type {
   case .jpg?:
     ....
   case .png?:
@@ -47,9 +48,9 @@ Pass bytes to it
 import Swime
 
 let bytes: [UInt8] = [255, 216, 255]
-let swime = Swime(bytes: bytes)
+let mimeType = Swime.mimeType(bytes: bytes)
 
-swime.mimeType()! // MimeType(mime: "image/jpeg", ext: "jpg", extEnum: .jpg)
+mimeType! // MimeType(mime: "image/jpeg", ext: "jpg", type: .jpg)
 ```
 
 ## MimeTypeExtension

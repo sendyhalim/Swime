@@ -26,7 +26,7 @@ class SwimeSpec: QuickSpec {
       }
     }
 
-    describe(".mimeType()") {
+    describe("Swime.mimeType(data:)") {
       let extensions = [
         "7z",
         "amr",
@@ -99,39 +99,39 @@ class SwimeSpec: QuickSpec {
         context("when extension is \(ext)") {
           it("shoud guess the correct mime type") {
             let data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.\(ext)")
-            let swime = Swime(data: data)
+            let mimeType = Swime.mimeType(data: data)
 
-            if let mimeType = mimeTypeByExtension[ext] {
-              expect(swime.mimeType()?.mime) == mimeType
+            if let mime = mimeTypeByExtension[ext] {
+              expect(mimeType?.mime) == mime
             } else {
-              expect(swime.mimeType()?.ext) == ext
+              expect(mimeType?.ext) == ext
             }
           }
         }
       }
     }
 
-    describe(".init(bytes:") {
+    describe("Swime.mimeType(bytes:)") {
       context("when given jpeg bytes") {
         it("should return image/jpeg mime type") {
           let bytes: [UInt8] = [255, 216, 255]
-          let swime = Swime(bytes: bytes)
+          let mimeType = Swime.mimeType(bytes: bytes)
 
-          expect(swime.mimeType()?.mime) == "image/jpeg"
+          expect(mimeType?.mime) == "image/jpeg"
         }
       }
 
       context("when given 7z bytes") {
         it("should return application/x-7z-compressed") {
           let bytes: [UInt8] = [55, 122, 188, 175, 39, 28]
-          let swime = Swime(bytes: bytes)
+          let mimeType = Swime.mimeType(bytes: bytes)
 
-          expect(swime.mimeType()?.mime) == "application/x-7z-compressed"
+          expect(mimeType?.mime) == "application/x-7z-compressed"
         }
       }
     }
 
-    describe(".type") {
+    describe("Swime.mimeType(bytes:).type") {
       context("when file type is image/jpeg") {
         it("should return true") {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.jpg")
@@ -161,3 +161,4 @@ class SwimeSpec: QuickSpec {
     }
   }
 }
+
