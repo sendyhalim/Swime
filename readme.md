@@ -20,7 +20,7 @@ let package = Package(
 
 Inspect mime type
 
-```
+```swift
 import Swime
 
 let path = "/path/to/some-file.jpg"
