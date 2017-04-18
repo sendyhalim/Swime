@@ -11,7 +11,7 @@ import PackageDescription
 let package = Package(
   name: "MyApp",
   dependencies: [
-    .Package(url: "https://github.com/sendyhalim/Swime", majorVersion: 2)
+    .Package(url: "https://github.com/sendyhalim/Swime", majorVersion: 3)
   ]
 )
 ```
