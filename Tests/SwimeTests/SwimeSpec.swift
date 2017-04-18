@@ -1,7 +1,7 @@
 import Foundation
 import Nimble
 import Quick
-import Swime
+@testable import Swime
 
 class SwimeSpec: QuickSpec {
   override func spec() {
