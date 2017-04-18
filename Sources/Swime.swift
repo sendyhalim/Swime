@@ -8,8 +8,8 @@ public struct Swime {
   ///  ```
   ///  swime.type == .jpg
   ///  ```
-  public var type: MimeTypeExtension? {
-    return mimeType()?.extEnum
+  public var type: FileType? {
+    return mimeType()?.type
   }
 
   public init(data: Data) {
