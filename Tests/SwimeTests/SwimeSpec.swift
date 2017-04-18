@@ -135,30 +135,29 @@ class SwimeSpec: QuickSpec {
       context("when file type is image/jpeg") {
         it("should return true") {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.jpg")
-          let swime = Swime(data: data)
+          let mimeType = Swime.mimeType(data: data)
 
-          expect(swime.type) == .jpg
+          expect(mimeType?.type) == .jpg
         }
       }
 
       context("when file type is application/pdf") {
         it("should return true") {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.pdf")
-          let swime = Swime(data: data)
+          let mimeType = Swime.mimeType(data: data)
 
-          expect(swime.type) == .pdf
+          expect(mimeType?.type) == .pdf
         }
       }
 
       context("when file type is not image/jpeg") {
         it("should return true") {
           let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.png")
-          let swime = Swime(data: data)
+          let mimeType = Swime.mimeType(data: data)
 
-          expect(swime.type) != .jpg
+          expect(mimeType?.type) != .jpg
         }
       }
     }
   }
 }
-

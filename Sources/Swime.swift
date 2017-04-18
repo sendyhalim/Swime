@@ -4,12 +4,18 @@ public struct Swime {
   /// File data
   let data: Data
 
-  ///  Optional computed property of mime type extension enum.
-  ///  ```
-  ///  swime.type == .jpg
-  ///  ```
-  public var type: FileType? {
-    return mimeType()?.type
+  ///  A static method to get the `MimeType` that matches the given file data
+  ///
+  ///  - returns: Optional<MimeType>
+  static public func mimeType(data: Data) -> MimeType? {
+    return Swime(data: data).mimeType()
+  }
+
+  ///  A static method to get the `MimeType` that matches the given bytes
+  ///
+  ///  - returns: Optional<MimeType>
+  static public func mimeType(bytes: [UInt8]) -> MimeType? {
+    return Swime(bytes: bytes).mimeType()
   }
 
   public init(data: Data) {
