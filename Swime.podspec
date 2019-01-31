@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Swime"
-  s.version      = "3.0.1"
+  s.version      = "3.0.3"
   s.summary      = "Swift MIME type checking based on magic bytes"
   s.description  = <<-DESC
     Swift check MIME type based on magic bytes. It does so by reading the given `Data` instance.
