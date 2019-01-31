@@ -345,9 +345,9 @@ public struct MimeType {
 
         let docTypePos = idPos + 3
         let findDocType: (String) -> Bool = { type in
-          for i in 0 ..< type.characters.count {
-            let index = type.characters.index(type.startIndex, offsetBy: i)
-            let scalars = String(type.characters[index]).unicodeScalars
+          for i in 0 ..< type.count {
+            let index = type.index(type.startIndex, offsetBy: i)
+            let scalars = String(type[index]).unicodeScalars
 
             if _bytes[docTypePos + i] != UInt8(scalars[scalars.startIndex].value) {
               return false
@@ -386,9 +386,9 @@ public struct MimeType {
 
         let docTypePos = idPos + 3
         let findDocType: (String) -> Bool = { type in
-          for i in 0 ..< type.characters.count {
-            let index = type.characters.index(type.startIndex, offsetBy: i)
-            let scalars = String(type.characters[index]).unicodeScalars
+          for i in 0 ..< type.count {
+            let index = type.index(type.startIndex, offsetBy: i)
+            let scalars = String(type[index]).unicodeScalars
 
             if _bytes[docTypePos + i] != UInt8(scalars[scalars.startIndex].value) {
               return false
@@ -441,7 +441,7 @@ public struct MimeType {
 
         let hexCode = String(format: "%2X", bytes[3])
 
-        return hexCode.characters.first != nil && hexCode.characters.first! == "B"
+        return hexCode.first != nil && hexCode.first! == "B"
       }
     ),
     MimeType(
