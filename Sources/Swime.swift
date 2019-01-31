@@ -22,7 +22,7 @@ public struct Swime {
   ///
   ///  - returns: Optional<MimeType>
   static public func mimeType(swime: Swime) -> MimeType? {
-    let bytes = swime.readBytes(count: 262)
+    let bytes = swime.readBytes(count: min(swime.data.count, 262))
 
     for mime in MimeType.all {
       if mime.matches(bytes: bytes, swime: swime) {
