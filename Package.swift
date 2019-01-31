@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
   name: "Swime",
+  products: [
+    .library(name: "Swime", targets: ["Swime"])
+  ],
   dependencies: [
     .package(url: "https://github.com/Quick/Quick", from: "1.3.4"),
     .package(url: "https://github.com/Quick/Nimble", from: "7.3.3")
