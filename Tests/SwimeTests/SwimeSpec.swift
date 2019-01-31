@@ -18,7 +18,7 @@ class SwimeSpec: QuickSpec {
 
         it("should return correct bytes") {
           let endIndex = str.index(str.startIndex, offsetBy: 4)
-          let substr = str.substring(to: endIndex)
+          let substr = str[..<endIndex]
           let expectation = [UInt8](substr.utf8)
 
           expect(bytes) == expectation
