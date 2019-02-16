@@ -161,7 +161,7 @@ public struct MimeType {
       bytesCount: 4,
       matches: { bytes, _ in
         return (bytes[0...3] == [0x49, 0x49, 0x2A, 0x00]) ||
-          (bytes[0...3] == [0x4D, 0x4D, 0x20, 0x2A])
+          (bytes[0...3] == [0x4D, 0x4D, 0x00, 0x2A])
       }
     ),
     MimeType(
