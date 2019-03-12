@@ -243,7 +243,7 @@
 		OBJ_98 /* ToSucceed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToSucceed.swift; sourceTree = "<group>"; };
 		"Quick::Quick::Product" /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Quick::QuickSpecBase::Product" /* QuickSpecBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuickSpecBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Swime::Swime::Product" /* Swime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Swime::Swime::Product" /* Swime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Swime::SwimeTests::Product" /* SwimeTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SwimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -439,7 +439,7 @@
 			path = ".build/checkouts/Nimble-7519179571779245347/Sources/Nimble";
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -448,7 +448,6 @@
 				OBJ_14 /* Dependencies */,
 				OBJ_106 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_50 /* Adapters */ = {
@@ -691,7 +690,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_106 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1105,6 +1104,7 @@
 		OBJ_224 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
