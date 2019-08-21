@@ -38,7 +38,7 @@ public struct Swime {
   }
 
   public init(bytes: [UInt8]) {
-    self.init(data: Data(bytes: bytes))
+    self.init(data: Data(bytes))
   }
 
   ///  Read bytes from file data
