@@ -572,7 +572,7 @@ public struct MimeType {
       mime: "application/octet-stream",
       ext: "eot",
       type: .eot,
-      bytesCount: 11,
+      bytesCount: 36,
       matches: { bytes, _ in
         return (bytes[34...35] == [0x4C, 0x50]) &&
           ((bytes[8...10] == [0x00, 0x00, 0x01]) || (bytes[8...10] == [0x01, 0x00, 0x02]) || (bytes[8...10] == [0x02, 0x00, 0x02]))
