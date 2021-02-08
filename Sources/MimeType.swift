@@ -7,6 +7,7 @@ import Foundation
 /// swime.type
 /// ```
 public enum FileType {
+  case aac
   case amr
   case ar
   case avi
@@ -99,6 +100,15 @@ public struct MimeType {
 
   /// List of all supported `MimeType`s
   public static let all: [MimeType] = [
+    MimeType(
+      mime: "audio/aac",
+      ext: "aac",
+      type: .aac,
+      bytesCount: 2,
+      matches: { bytes, _ in
+        return bytes[0...1] == [0xFF, 0xF1]
+      }
+    ),
     MimeType(
       mime: "image/jpeg",
       ext: "jpg",
