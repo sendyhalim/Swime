@@ -1,10 +1,8 @@
 import Foundation
 
 func loadFileData(path: String) -> Data {
-  let projectDir = FileManager.default.currentDirectoryPath
-  print(projectDir)
-  let absolutePath = "\(projectDir)\(path)"
-  let url = URL(fileURLWithPath: absolutePath, isDirectory: false)
+  let url = URL(fileURLWithPath: #file)
+    .deletingLastPathComponent()
+    .appendingPathComponent(path)
   return try! Data(contentsOf: url)
 }
-

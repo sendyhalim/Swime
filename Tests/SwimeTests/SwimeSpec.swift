@@ -98,7 +98,7 @@ class SwimeSpec: QuickSpec {
       for ext in extensions {
         context("when extension is \(ext)") {
           it("shoud guess the correct mime type") {
-            let data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.\(ext)")
+            let data = loadFileData(path: "fixtures/fixture.\(ext)")
             let mimeType = Swime.mimeType(data: data)
 
             if let mime = mimeTypeByExtension[ext] {
@@ -134,7 +134,7 @@ class SwimeSpec: QuickSpec {
     describe("Swime.mimeType(bytes:).type") {
       context("when file type is image/jpeg") {
         it("should return true") {
-          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.jpg")
+          let data: Data = loadFileData(path: "fixtures/fixture.jpg")
           let mimeType = Swime.mimeType(data: data)
 
           expect(mimeType?.type) == .jpg
@@ -143,7 +143,7 @@ class SwimeSpec: QuickSpec {
 
       context("when file type is application/pdf") {
         it("should return true") {
-          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.pdf")
+          let data: Data = loadFileData(path: "fixtures/fixture.pdf")
           let mimeType = Swime.mimeType(data: data)
 
           expect(mimeType?.type) == .pdf
@@ -152,7 +152,7 @@ class SwimeSpec: QuickSpec {
 
       context("when file type is not image/jpeg") {
         it("should return true") {
-          let data: Data = loadFileData(path: "/Tests/SwimeTests/fixtures/fixture.png")
+          let data: Data = loadFileData(path: "fixtures/fixture.png")
           let mimeType = Swime.mimeType(data: data)
 
           expect(mimeType?.type) != .jpg
@@ -161,4 +161,3 @@ class SwimeSpec: QuickSpec {
     }
   }
 }
-
