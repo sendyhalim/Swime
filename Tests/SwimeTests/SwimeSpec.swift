@@ -130,7 +130,7 @@ class SwimeSpec: QuickSpec {
         }
       }
 
-      context("when givven eot bytes") {
+      context("when given eot bytes") {
         it("should return application/vnd.ms-fontobject") {
           let bytes: [UInt8] = [
             0x3f, 0x47, 0x00, 0x00, 0x6b, 0x46, 0x00, 0x00, 0x02, 0x00, 0x02, 0x00, 0x04, 0x00, 0x00, 0x00,
@@ -173,6 +173,16 @@ class SwimeSpec: QuickSpec {
           let mimeType = Swime.mimeType(data: data)
 
           expect(mimeType?.type) != .jpg
+        }
+      }
+    }
+
+    describe("Swime.mimeType(data:)") {
+      context("when given fake png file") {
+        it("should return nil") {
+          let data = loadFileData(path: "fixtures/fake.png")
+          let mimeType = Swime.mimeType(data: data)
+          expect(mimeType).to(beNil())
         }
       }
     }
