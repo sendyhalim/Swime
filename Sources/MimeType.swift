@@ -569,7 +569,7 @@ public struct MimeType {
       }
     ),
     MimeType(
-      mime: "application/octet-stream",
+      mime: "application/vnd.ms-fontobject",
       ext: "eot",
       type: .eot,
       bytesCount: 36,
