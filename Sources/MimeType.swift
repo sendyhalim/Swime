@@ -67,6 +67,7 @@ public enum FileType {
   case xz
   case z
   case zip
+  case heic
 }
 
 public struct MimeType {
@@ -746,6 +747,15 @@ public struct MimeType {
       matches: { bytes, _ in
         return bytes[0...13] == [0x06, 0x0E, 0x2B, 0x34, 0x02, 0x05, 0x01, 0x01, 0x0D, 0x01, 0x02, 0x01, 0x01, 0x02 ]
       }
+    ),
+    MimeType(
+        mime: "application/heic",
+        ext: "heic",
+        type: .heic,
+        bytesCount: 4,
+        matches: { bytes, _ in
+            return bytes[8...11] == [0x68, 0x65, 0x69, 0x63] || bytes[8...11] == [0x68, 0x65, 0x69, 0x78]
+        }
     )
   ]
 }
