@@ -3,6 +3,11 @@ Swift check MIME type based on magic bytes. Swime detects MIME type of a `Data`,
 
 [![Build Status](https://travis-ci.org/sendyhalim/Swime.svg?branch=master)](https://travis-ci.org/sendyhalim/Swime)
 
+## Maintainers wanted
+This project is not under active development, please go to [maintainers ticket](https://github.com/sendyhalim/Swime/issues/24) if you're interested.
+
+[![Maintainers Wanted](https://img.shields.io/badge/maintainers-wanted-red.svg)](https://github.com/pickhardt/maintainers-wanted)
+
 ## Installation
 ### Swift Package Manager
 ```swift
