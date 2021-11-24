@@ -4,5 +4,10 @@ regenerate-xcode:
 test:
 	swift test
 
-.PHONY: regenerate-xcode test
+# Please add git tag release manually and
+# push it into the remote repo
+publish:
+	pod spec lint
+	pod trunk push
 
+.PHONY: regenerate-xcode test publish
