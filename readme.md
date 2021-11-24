@@ -117,6 +117,7 @@ public enum MimeTypeExtension {
   case xz
   case z
   case zip
+  case heic
 }
 ```
 
