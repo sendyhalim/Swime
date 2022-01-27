@@ -752,7 +752,7 @@ public struct MimeType {
         mime: "application/heic",
         ext: "heic",
         type: .heic,
-        bytesCount: 4,
+        bytesCount: 12,
         matches: { bytes, _ in
             return bytes[8...11] == [0x68, 0x65, 0x69, 0x63] || bytes[8...11] == [0x68, 0x65, 0x69, 0x78]
         }
